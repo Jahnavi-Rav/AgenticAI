@@ -411,25 +411,6 @@ Those failures are included so the agent can detect, reject, repair, or safely s
 
 ---
 
-## Git Workflow
-
-Typical workflow:
-
-```bash
-git status
-git add .
-git commit -m "Update agent module"
-git push origin main
-```
-
-Make sure you run Git commands from the main repo root:
-
-```text
-/Users/jenny/Desktop/LearningPhase/AgenticAI
-```
-
----
-
 ## Author
 
 Created by **Jahnavi Rav** as part of a hands-on Agentic AI learning journey.
