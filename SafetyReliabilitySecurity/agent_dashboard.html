@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Agent Observability Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background: #f7f7f7;
+        }
+        h1, h2 {
+            color: #222;
+        }
+        .card {
+            background: white;
+            padding: 16px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+        th, td {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background: #eee;
+        }
+        .ok {
+            color: green;
+            font-weight: bold;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+        .warning {
+            color: #b36b00;
+            font-weight: bold;
+        }
+        code {
+            background: #eee;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Agent Observability Dashboard</h1>
+
+    <div class="card">
+        <h2>Summary</h2>
+        <p>Total logs: <strong>4</strong></p>
+        <p>Total spans: <strong>4</strong></p>
+        <p>Total metrics: <strong>4</strong></p>
+        <p>Missing-log warnings: <strong>1</strong></p>
+    </div>
+
+    <div class="card">
+        <h2>Warnings</h2>
+        <ul><li class='warning'>Missing logs for span &#x27;retrieve_context&#x27; (5e96e615-99fa-41a2-9909-af6aa0587b18)</li></ul>
+    </div>
+
+    <div class="card">
+        <h2>Traces and Spans</h2>
+        
+<table>
+    <tr>
+        <th>Trace ID</th>
+        <th>Span ID</th>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Duration ms</th>
+        <th>Metadata</th>
+    </tr>
+    
+<tr>
+    <td>600185e7-3c2b-4980-8189-146a1fede68e</td>
+    <td>b9ebeb5b-720b-42d4-8d8a-ed86cd9d3894</td>
+    <td>agent_run</td>
+    <td class="ok">ok</td>
+    <td>135.09</td>
+    <td><code>{&#x27;user_input_length&#x27;: 74}</code></td>
+</tr>
+
+<tr>
+    <td>600185e7-3c2b-4980-8189-146a1fede68e</td>
+    <td>9c091a99-d84d-4830-a953-5a150e7d7656</td>
+    <td>validate_input</td>
+    <td class="ok">ok</td>
+    <td>0.02</td>
+    <td><code>{}</code></td>
+</tr>
+
+<tr>
+    <td>600185e7-3c2b-4980-8189-146a1fede68e</td>
+    <td>5e96e615-99fa-41a2-9909-af6aa0587b18</td>
+    <td>retrieve_context</td>
+    <td class="ok">ok</td>
+    <td>51.87</td>
+    <td><code>{}</code></td>
+</tr>
+
+<tr>
+    <td>600185e7-3c2b-4980-8189-146a1fede68e</td>
+    <td>64dbd1a3-1595-4f26-81aa-a221305eca7b</td>
+    <td>call_llm</td>
+    <td class="ok">ok</td>
+    <td>83.14</td>
+    <td><code>{}</code></td>
+</tr>
+
+</table>
+
+    </div>
+
+    <div class="card">
+        <h2>Logs</h2>
+        
+<table>
+    <tr>
+        <th>Timestamp</th>
+        <th>Level</th>
+        <th>Trace ID</th>
+        <th>Span ID</th>
+        <th>Message</th>
+    </tr>
+    
+<tr>
+    <td>1777649621.374</td>
+    <td>INFO</td>
+    <td>600185e7-3c2b-4980-8189-146a1fede68e</td>
+    <td>None</td>
+    <td>Agent request started. User input: Explain observability. My email is [REDACTED] and [REDACTED]</td>
+</tr>
+
+<tr>
+    <td>1777649621.374</td>
+    <td>INFO</td>
+    <td>600185e7-3c2b-4980-8189-146a1fede68e</td>
+    <td>9c091a99-d84d-4830-a953-5a150e7d7656</td>
+    <td>Validating user input.</td>
+</tr>
+
+<tr>
+    <td>1777649621.426</td>
+    <td>INFO</td>
+    <td>600185e7-3c2b-4980-8189-146a1fede68e</td>
+    <td>64dbd1a3-1595-4f26-81aa-a221305eca7b</td>
+    <td>Calling LLM with user email [REDACTED] and [REDACTED]</td>
+</tr>
+
+<tr>
+    <td>1777649621.509</td>
+    <td>INFO</td>
+    <td>600185e7-3c2b-4980-8189-146a1fede68e</td>
+    <td>b9ebeb5b-720b-42d4-8d8a-ed86cd9d3894</td>
+    <td>Agent request completed successfully.</td>
+</tr>
+
+</table>
+
+    </div>
+
+    <div class="card">
+        <h2>Metrics</h2>
+        
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Value</th>
+        <th>Labels</th>
+    </tr>
+    
+<tr>
+    <td>agent_requests_total</td>
+    <td>1</td>
+    <td><code>{}</code></td>
+</tr>
+
+<tr>
+    <td>retrieval_latency_ms</td>
+    <td>50</td>
+    <td><code>{&#x27;step&#x27;: &#x27;retrieve_context&#x27;}</code></td>
+</tr>
+
+<tr>
+    <td>llm_latency_ms</td>
+    <td>80</td>
+    <td><code>{&#x27;model&#x27;: &#x27;mock-llm&#x27;}</code></td>
+</tr>
+
+<tr>
+    <td>agent_success_total</td>
+    <td>1</td>
+    <td><code>{}</code></td>
+</tr>
+
+</table>
+
+    </div>
+</body>
+</html>
