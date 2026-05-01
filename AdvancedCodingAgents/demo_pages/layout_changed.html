@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+  <h1>Contact Us</h1>
+
+  <form>
+    <input data-testid="full-name-input" name="full_name" placeholder="Full name">
+    <input data-testid="email-input" name="user_email" placeholder="Email address">
+    <textarea data-testid="message-input" name="user_message" placeholder="Write message"></textarea>
+
+    <button data-testid="send-button" type="button" onclick="document.getElementById('result').innerText='Form submitted successfully'">
+      Send Message
+    </button>
+  </form>
+
+  <p id="result"></p>
+</body>
+</html>
